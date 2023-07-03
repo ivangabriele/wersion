@@ -158,11 +158,9 @@ export async function main(release: ReleaseType, options: Options) {
       }),
     )
 
-    await exec(
-      packageManagerCommand,
-      [PackageManager.YARN_CLASSIC, PackageManager.YARN_BERRY].includes(packageManager) ? [] : ['i'],
-      options.dryRun,
-    )
+    if (packageManager === PackageManager.YARN_BERRY) {
+      await exec('yarn', [], options.dryRun)
+    }
     await exec('git', ['add', '.'], options.dryRun)
     await exec('git', ['commit', '-m', `ci(release): ${nextVersion}`, '--no-verify'], options.dryRun)
     await exec('git', ['tag', `v${nextVersion}`], options.dryRun)
