@@ -118,7 +118,7 @@ export async function main(release: ReleaseType, options: Options) {
     // -------------------------------------------------------------------------
     // Prerelease script
 
-    if (rootPackageData.scripts?.prerelease) {
+    if (rootPackageData.scripts?.prerelease && packageManager !== PackageManager.YARN_CLASSIC) {
       await exec(packageManagerCommand, [...packageManagerCommandRunArgs, 'prerelease'], options.dryRun)
     }
 
@@ -170,7 +170,7 @@ export async function main(release: ReleaseType, options: Options) {
     // -------------------------------------------------------------------------
     // Postrelease script
 
-    if (rootPackageData.scripts?.postrelease) {
+    if (rootPackageData.scripts?.postrelease && packageManager !== PackageManager.YARN_CLASSIC) {
       await exec(packageManagerCommand, [...packageManagerCommandRunArgs, 'postrelease'], options.dryRun)
     }
   } catch (err) {

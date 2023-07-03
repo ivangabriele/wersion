@@ -6,6 +6,7 @@ export async function exec(command: string, args: string[], isDryRun = false): P
   const projectRootPath = await getProjectRootPath()
   const options: Options = {
     cwd: projectRootPath,
+    stdout: 'inherit',
   }
   const quotedArgs = args.map(arg => (arg.includes(' ') ? `"${arg}"` : arg))
   const statement = `${command} ${quotedArgs.join(' ')}`.trim()
