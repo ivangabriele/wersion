@@ -157,7 +157,7 @@ export async function main(release: ReleaseType, options: Options) {
       options.dryRun,
     )
     await exec('git', ['add', '.'], options.dryRun)
-    await exec('git', ['commit', '-m', `ci(release): ${nextVersion}`], options.dryRun)
+    await exec('git', ['commit', '-m', `ci(release): ${nextVersion}`, '--no-verify'], options.dryRun)
     await exec('git', ['tag', `v${nextVersion}`], options.dryRun)
 
     // -------------------------------------------------------------------------
