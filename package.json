@@ -2,7 +2,7 @@
   "name": "wersion",
   "description": "Makes bumping your monorepos workspaces version a breeze 🌬️.",
   "license": "MIT",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "engines": {
     "node": ">=18"
   },
