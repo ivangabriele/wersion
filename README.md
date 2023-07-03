@@ -5,9 +5,7 @@
 
 Makes bumping your monorepos workspaces version a breeze 🌬️.
 
-**It's mostly useful for those using Yarn Berry (2/3)**, but you can use it with npm & pnpm.
-
-> This is a work in progress.
+**It's mostly useful for those using Yarn Berry (v2/v3)**, but you can use it with npm, pnpm and Yarn Classic (v1).
 
 ---
 
