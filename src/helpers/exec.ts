@@ -1,20 +1,16 @@
 import { execa, Options } from 'execa'
-import { pkgUp } from 'pkg-up'
+
+import { getProjectRootPath } from './getProjectRootPath'
 
 export async function exec(command: string, args: string[], isDryRun = false): Promise<void> {
-  const projectRootPath = await pkgUp()
-  if (!projectRootPath) {
-    throw new Error('`projectRootPath` is undefined.')
-  }
-
-  const quotedArgs = args.map(arg => (arg.includes(' ') ? `"${arg}"` : arg))
-  const statement = `${command} ${quotedArgs.join(' ')}`
-
+  const projectRootPath = await getProjectRootPath()
   const options: Options = {
     cwd: projectRootPath,
   }
+  const quotedArgs = args.map(arg => (arg.includes(' ') ? `"${arg}"` : arg))
+  const statement = `${command} ${quotedArgs.join(' ')}`.trim()
 
-  console.info(`Running: \`${statement}\`${isDryRun ? ' (Dry Run)' : ''}...`)
+  console.info(`Running: \`${statement}\`${isDryRun ? ' (Dry Run)' : ''} in ${projectRootPath}...`)
   if (!isDryRun) {
     const execaChildProcess = await execa(command, args, options)
 

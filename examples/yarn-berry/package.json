@@ -6,5 +6,8 @@
     "a",
     "packages/*"
   ],
+  "scripts": {
+    "version": "wersion"
+  },
   "packageManager": "yarn@3.6.1"
 }

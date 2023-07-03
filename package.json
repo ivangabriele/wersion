@@ -11,7 +11,10 @@
     "build": "rm -Rf ./dist && rollup -c",
     "dev": "yarn build && cd ./examples/yarn-berry && wersion --dry-run",
     "dev:setup": "yarn build && npm link",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test:e2e:yarn2": "./scripts/test/yarn_berry.sh",
+    "test:lint": "eslint .",
+    "test:type": "tsc --noEmit"
   },
   "devDependencies": {
     "@commitlint/cli": "17.6.6",

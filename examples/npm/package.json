@@ -5,5 +5,8 @@
   "workspaces": [
     "a",
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "version": "wersion"
+  }
 }

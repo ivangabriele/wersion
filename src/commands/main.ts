@@ -10,6 +10,7 @@ import semverInc from 'semver/functions/inc'
 import { PACKAGE_MANAGER_COMMAND_PREFIX } from '../constants'
 import { exec } from '../helpers/exec'
 import { getPackageManager } from '../helpers/getPackageManager'
+import { getProjectRootPath } from '../helpers/getProjectRootPath'
 import { handleError } from '../helpers/handleError'
 import { isFile } from '../helpers/isFile'
 import { logDiff } from '../helpers/logDiff'
@@ -50,7 +51,7 @@ export async function main(release: ReleaseType, options: Options) {
     // -------------------------------------------------------------------------
     // Constants
 
-    const projectRootPath = normalize(rootPackagePath.replace('package.json', ''))
+    const projectRootPath = await getProjectRootPath()
     const packageManager = await getPackageManager(projectRootPath)
     const packageManagerCommandPrefix = PACKAGE_MANAGER_COMMAND_PREFIX[packageManager]
     const { version } = rootPackageData
@@ -92,20 +93,7 @@ export async function main(release: ReleaseType, options: Options) {
 
     const nextVersion = semverInc(version, release)
     if (!nextVersion) {
-      console.error(
-        [
-          `Error: Invalid [release]: ${release}.`,
-          `Can be one of: "major", "premajor", "minor", "preminor", "patch", "prepatch", or "prerelease".`,
-        ].join('\n'),
-      )
-      process.exit(1)
-    }
-
-    // -------------------------------------------------------------------------
-    // Preversion script
-
-    if (rootPackageData.scripts?.preversion) {
-      await exec(packageManagerCommandPrefix, ['preversion'], options.dryRun)
+      throw new Error('`nextVersion` is undefined.')
     }
 
     // -------------------------------------------------------------------------
