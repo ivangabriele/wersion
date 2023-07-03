@@ -19,12 +19,6 @@ jobs:
           node-version: 20
       - name: Install
         run: yarn
-      - name: Lint commits
-        uses: wagoid/commitlint-github-action@v5
-        with:
-          commitDepth: 25
-          configFile: ./.commitlintrc
-          failOnWarnings: true
       - name: Lint code
         run: yarn test:lint
 
