@@ -53,7 +53,7 @@ export async function main(release: ReleaseType, options: Options) {
 
     const projectRootPath = await getProjectRootPath()
     const packageManager = await getPackageManager(projectRootPath)
-    const packageManagerCommandPrefix = PACKAGE_MANAGER_COMMAND_PREFIX[packageManager]
+    const [packageManagerCommand, packageManagerCommandRunArgs] = PACKAGE_MANAGER_COMMAND_PREFIX[packageManager]
     const { version } = rootPackageData
     if (!version) {
       throw new UserError(`There is no "version" field in ${rootPackagePath}.`)
@@ -119,7 +119,7 @@ export async function main(release: ReleaseType, options: Options) {
     // Prerelease script
 
     if (rootPackageData.scripts?.prerelease) {
-      await exec(packageManagerCommandPrefix, ['prerelease'], options.dryRun)
+      await exec(packageManagerCommand, [...packageManagerCommandRunArgs, 'prerelease'], options.dryRun)
     }
 
     // -------------------------------------------------------------------------
@@ -159,7 +159,7 @@ export async function main(release: ReleaseType, options: Options) {
     )
 
     await exec(
-      PACKAGE_MANAGER_COMMAND_PREFIX[packageManager],
+      packageManagerCommand,
       [PackageManager.YARN_CLASSIC, PackageManager.YARN_BERRY].includes(packageManager) ? [] : ['i'],
       options.dryRun,
     )
@@ -171,7 +171,7 @@ export async function main(release: ReleaseType, options: Options) {
     // Postrelease script
 
     if (rootPackageData.scripts?.postrelease) {
-      await exec(packageManagerCommandPrefix, ['postrelease'], options.dryRun)
+      await exec(packageManagerCommand, [...packageManagerCommandRunArgs, 'postrelease'], options.dryRun)
     }
   } catch (err) {
     handleError(err, true)
