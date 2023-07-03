@@ -5,6 +5,8 @@
 
 Makes bumping your monorepos workspaces version a breeze 🌬️.
 
+**It's mostly useful for those using Yarn**, but you can use it with npm & pnpm.
+
 > This is a work in progress.
 
 ---
@@ -43,6 +45,8 @@ First, install Wersion:
 ```sh
 yarn add -DE wersion
 # or
+pnpm i -DE wersion
+# or
 npm i -DE wersion
 ```
 
@@ -65,7 +69,11 @@ You're done! 🎉
 Simply run:
 
 ```
-npm version [major | minor | patch | premajor | preminor | prepatch | prerelease | from-git]
+yarn version <release>
+# or
+pnpm version <release>
+# or
+npm run version <release>
 ```
 
 `<release>` can be one of: "patch", "minor", "major", "prepatch", "preminor", "premajor" or "prerelease".

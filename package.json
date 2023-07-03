@@ -12,6 +12,7 @@
     "dev": "yarn build && cd ./examples/yarn-berry && wersion --dry-run",
     "dev:setup": "yarn build && npm link",
     "prepare": "husky install",
+    "test:e2e:npm": "./scripts/test/npm.sh",
     "test:e2e:yarn2": "./scripts/test/yarn_berry.sh",
     "test:lint": "eslint .",
     "test:type": "tsc --noEmit"

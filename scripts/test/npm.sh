@@ -4,8 +4,8 @@ set -e
 
 yarn build
 npm link
-cd ./examples/yarn-berry
-yarn version patch
+cd ./examples/npm
+npm run version patch
 git reset --soft HEAD~1
 git --no-pager diff
 git reset
