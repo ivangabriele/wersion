@@ -5,7 +5,7 @@
 
 Makes bumping your monorepos workspaces version a breeze 🌬️.
 
-**It's mostly useful for those using Yarn**, but you can use it with npm & pnpm.
+**It's mostly useful for those using Yarn Berry (2/3)**, but you can use it with npm & pnpm.
 
 > This is a work in progress.
 
@@ -70,6 +70,8 @@ Simply run:
 
 ```
 yarn version <release>
+# or
+yarn run version <release> # for Yarn Classic
 # or
 pnpm version <release>
 # or
