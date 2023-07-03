@@ -16,6 +16,8 @@ Makes bumping your monorepos workspaces version a breeze 🌬️.
 - [Installation](#installation)
   - [Prerequisites](#prerequisites)
   - [First Setup](#first-setup)
+- [Usage](#usage)
+  - [Pre \& Post Scripts](#pre--post-scripts)
 
 ---
 
@@ -47,19 +49,15 @@ yarn add -DE wersion
 pnpm i -DE wersion
 # or
 npm i -DE wersion
+# or
+npm i -g wersion # to install it globally
 ```
-
-You can also install it globally:
-
-```sh
-npm i -g wersion
-``
 
 ## Usage
 
 Simply run:
 
-```
+```sh
 yarn wersion <release>
 # or
 pnpm wersion <release>
@@ -72,7 +70,6 @@ wersion <release> # if installed globally
 `<release>` can be one of: "patch", "minor", "major", "prepatch", "preminor", "premajor" or "prewersion".
 
 You can run it with `--dry-run` or `-d` to see what would happen without actually bumping your packages versions.
-
 
 ### Pre & Post Scripts
 
