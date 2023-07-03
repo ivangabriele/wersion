@@ -1,17 +1,17 @@
 import { promises as fs } from 'fs'
+import { normalize } from 'path'
 
 import { PackageManager } from '../types'
 
 export async function getPackageManager(projectRootPath: string): Promise<PackageManager> {
-  // List files and directories in projectRootPath
   const projectRootPathFiles = await fs.readdir(projectRootPath)
 
   switch (true) {
-    case projectRootPathFiles.includes('yarn.lock') && projectRootPathFiles.includes('.yarn'):
-      return PackageManager.YARN_BERRY
-
     case projectRootPathFiles.includes('yarn.lock'):
-      return PackageManager.YARN_CLASSIC
+      // eslint-disable-next-line no-case-declarations
+      const yarnLockFileSource = await fs.readFile(normalize(`${projectRootPath}/yarn.lock`), 'utf-8')
+
+      return yarnLockFileSource.includes('yarn lockfile v1') ? PackageManager.YARN_CLASSIC : PackageManager.YARN_BERRY
 
     case projectRootPathFiles.includes('pnpm-lock.yaml'):
       return PackageManager.PNPM
