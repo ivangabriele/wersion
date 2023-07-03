@@ -1,19 +1,14 @@
-#!/usr/bin/env node
-
 import { Argument, Option, program } from 'commander'
-import { getAbsolutePath } from 'esm-path'
-import { readFileSync } from 'fs'
 
 import { main } from './commands/main'
+import { getWersionPackage } from './helpers/getWersionPackage'
 
-const ROOT_PATH = getAbsolutePath(import.meta.url, '..')
-
-const rootPackageJson = JSON.parse(readFileSync(`${ROOT_PATH}/package.json`, 'utf-8'))
+const WERSION_PACKAGE = getWersionPackage()
 
 program
   .name('Wersion')
-  .description(rootPackageJson.description)
-  .version(rootPackageJson.version, '-V, --version', 'Output the current version')
+  .description(String(WERSION_PACKAGE.description))
+  .version(String(WERSION_PACKAGE.version), '-V, --version', 'Output the current version')
   .helpOption('-h, --help', 'Output usage information')
   .addArgument(
     new Argument('<release>', '').choices([

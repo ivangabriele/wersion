@@ -1,4 +1,5 @@
 import commonjs from '@rollup/plugin-commonjs'
+import json from '@rollup/plugin-json'
 import resolve from '@rollup/plugin-node-resolve'
 import { defineConfig } from 'rollup'
 import shebang from 'rollup-plugin-add-shebang'
@@ -18,7 +19,9 @@ export default defineConfig({
     commonjs(),
     resolve({
       exportConditions: ['node'],
+      preferBuiltins: true,
     }),
+    json(),
     swc({
       sourceMaps: true,
       tsconfig: './tsconfig.json',

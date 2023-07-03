@@ -5,7 +5,7 @@ set -e
 yarn build
 npm link
 
-cd ./examples/yarn-berry
+cd ./examples/pnpm
 wersion patch
 
 cd ../..
