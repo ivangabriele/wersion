@@ -1,0 +1,9 @@
+{
+  "extends": "@ivangabriele/tsconfig-node/tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "sourceMap": true
+  },
+  "include": ["src/**/*", "rollup.config.mjs"],
+  "exclude": ["dist/*", "node_modules/*"]
+}

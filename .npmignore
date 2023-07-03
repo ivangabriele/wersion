@@ -1,0 +1,8 @@
+/*
+!/dist
+/dist/*
+!/dist/index.js
+!/CHANGELOG.md
+!/LICENSE
+!/package.json
+!/README.md
