@@ -22,6 +22,7 @@
     "@ivangabriele/commitlint-config": "1.0.6",
     "@ivangabriele/eslint-config-typescript-base": "7.1.1",
     "@ivangabriele/prettier-config": "3.1.0",
+    "@ivangabriele/semantic-release-config-base": "3.0.0",
     "@ivangabriele/tsconfig-node": "1.2.2",
     "@rollup/plugin-commonjs": "25.0.2",
     "@rollup/plugin-node-resolve": "15.1.0",
@@ -53,6 +54,7 @@
     "rollup": "3.26.0",
     "rollup-plugin-add-shebang": "0.3.1",
     "rollup-plugin-swc3": "0.8.2",
+    "semantic-release": "21.0.6",
     "semver": "7.5.3",
     "typescript": "5.1.6",
     "yaml": "2.3.1"
@@ -67,6 +69,9 @@
   },
   "packageManager": "yarn@3.6.1",
   "prettier": "@ivangabriele/prettier-config",
+  "release": {
+    "extends": "@ivangabriele/semantic-release-config-base"
+  },
   "author": {
     "name": "Ivan Gabriele",
     "email": "ivan.gabriele@gmail.com",
@@ -81,8 +86,8 @@
     "bump",
     "monorepo",
     "monorepository",
-    "mono-repository",
     "npm",
+    "pnpm",
     "version",
     "versionning",
     "workspaces",
