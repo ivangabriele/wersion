@@ -23,7 +23,7 @@ program
       'premajor',
       'preminor',
       'prepatch',
-      'prerelease',
+      'prewersion',
     ]),
   )
   .addOption(

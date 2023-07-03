@@ -17,12 +17,13 @@ Makes bumping your monorepos workspaces version a breeze 🌬️.
   - [Prerequisites](#prerequisites)
   - [First Setup](#first-setup)
 - [Usage](#usage)
+  - [Pre \& Post Scripts](#pre--post-scripts)
 
 ---
 
 ## Features
 
-- [x] `prerelease` & `postrelease` scripts
+- [x] `prewersion` & `postwersion` scripts
 - [x] `npm`, `pnpm`, `Yarn Classic (v1)` & `Yarn Berry (v2, v3)` package managers
 - [x] `--dry-run` CLI option
 
@@ -50,32 +51,31 @@ pnpm i -DE wersion
 npm i -DE wersion
 ```
 
-Then, add the following to your `package.json`:
-
-```json
-{
-  "scripts": {
-    // "prerelease": ...",
-    "release": "wersion"
-    // "postrelease": ...",
-  }
-}
-```
-
-You're done! 🎉
-
 ## Usage
 
 Simply run:
 
 ```
-yarn release <release>
+yarn wersion <release>
 # or
-pnpm version <release>
+pnpm wersion <release>
 # or
-npm run release <release>
+npm run wersion <release>
 ```
 
-`<release>` can be one of: "patch", "minor", "major", "prepatch", "preminor", "premajor" or "prerelease".
+`<release>` can be one of: "patch", "minor", "major", "prepatch", "preminor", "premajor" or "prewersion".
 
 You can run it with `--dry-run` or `-d` to see what would happen without actually bumping your packages versions.
+
+### Pre & Post Scripts
+
+In your `package.json`:
+
+```json
+{
+  "scripts": {
+    "prewersion": "echo \"The version will be bumped from v${PREVIOUS_VERSION} to v${NEXT_VERSION}.\"",
+    "postwersion": "echo \"The version has been bumped from v${PREVIOUS_VERSION} to v${NEXT_VERSION}.\""
+  }
+}
+```

@@ -7,9 +7,8 @@
     "packages/*"
   ],
   "scripts": {
-    "prerelease": "echo 'Hi!'",
-    "release": "wersion",
-    "postrelease": "echo 'Bye!'"
+    "prewersion": "echo \"The version will be bumped from v${PREVIOUS_VERSION} to v${NEXT_VERSION}.\"",
+    "postwersion": "echo \"The version has been bumped from v${PREVIOUS_VERSION} to v${NEXT_VERSION}.\""
   },
   "packageManager": "yarn@3.6.1"
 }

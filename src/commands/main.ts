@@ -116,10 +116,10 @@ export async function main(release: ReleaseType, options: Options) {
     }))
 
     // -------------------------------------------------------------------------
-    // Prerelease script
+    // Prewersion script
 
-    if (rootPackageData.scripts?.prerelease && packageManager !== PackageManager.YARN_CLASSIC) {
-      await exec(packageManagerCommand, [...packageManagerCommandRunArgs, 'prerelease'], options.dryRun)
+    if (rootPackageData.scripts?.prewersion) {
+      await exec(packageManagerCommand, [...packageManagerCommandRunArgs, 'prewersion'], options.dryRun)
     }
 
     // -------------------------------------------------------------------------
@@ -166,10 +166,10 @@ export async function main(release: ReleaseType, options: Options) {
     await exec('git', ['tag', `v${nextVersion}`], options.dryRun)
 
     // -------------------------------------------------------------------------
-    // Postrelease script
+    // Postwersion script
 
-    if (rootPackageData.scripts?.postrelease && packageManager !== PackageManager.YARN_CLASSIC) {
-      await exec(packageManagerCommand, [...packageManagerCommandRunArgs, 'postrelease'], options.dryRun)
+    if (rootPackageData.scripts?.postwersion) {
+      await exec(packageManagerCommand, [...packageManagerCommandRunArgs, 'postwersion'], options.dryRun)
     }
   } catch (err) {
     handleError(err, true)
