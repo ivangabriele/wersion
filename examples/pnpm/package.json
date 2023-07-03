@@ -1,6 +1,6 @@
 {
   "name": "pnpm",
-  "version": "1.0.0",
+  "version": "99.88.77",
   "private": true,
   "scripts": {
     "prewersion": "echo \"The version will be bumped from v${PREVIOUS_VERSION} to v${NEXT_VERSION}.\"",

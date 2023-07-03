@@ -185,8 +185,8 @@ export async function main(release: ReleaseType, options: Options) {
 
     console.info('――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――')
 
-    if (packageManager === PackageManager.YARN_BERRY) {
-      await exec('yarn', [], options.dryRun)
+    if (packageManager === PackageManager.NPM) {
+      await exec('npm', ['i'], options.dryRun)
     }
     await exec('git', ['add', '.'], options.dryRun)
     await exec('git', ['commit', '-m', `ci(release): ${nextVersion}`, '--no-verify'], options.dryRun)
