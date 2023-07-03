@@ -96,6 +96,9 @@ export async function main(release: ReleaseType, options: Options) {
       throw new Error('`nextVersion` is undefined.')
     }
 
+    process.env.PREVIOUS_VERSION = version
+    process.env.NEXT_VERSION = nextVersion
+
     // -------------------------------------------------------------------------
     // Next root package
 
