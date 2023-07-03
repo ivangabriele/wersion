@@ -7,7 +7,9 @@
     "packages/*"
   ],
   "scripts": {
-    "version": "wersion"
+    "prerelease": "echo 'Hi!'",
+    "release": "wersion",
+    "postrelease": "echo 'Bye!'"
   },
   "packageManager": "yarn@3.6.1"
 }

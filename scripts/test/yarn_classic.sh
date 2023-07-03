@@ -5,7 +5,7 @@ set -e
 yarn build
 npm link
 cd ./examples/yarn-classic
-yarn run version patch
+yarn release patch
 git reset --soft HEAD~1
 git --no-pager diff
 git reset

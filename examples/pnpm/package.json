@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "version": "wersion"
+    "prerelease": "echo 'Hi!'",
+    "release": "wersion",
+    "postrelease": "echo 'Bye!'"
   }
 }

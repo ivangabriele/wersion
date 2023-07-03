@@ -116,6 +116,13 @@ export async function main(release: ReleaseType, options: Options) {
     }))
 
     // -------------------------------------------------------------------------
+    // Prerelease script
+
+    if (rootPackageData.scripts?.prerelease) {
+      await exec(packageManagerCommandPrefix, ['prerelease'], options.dryRun)
+    }
+
+    // -------------------------------------------------------------------------
     // Next root package update
 
     // eslint-disable-next-line no-null/no-null
@@ -153,7 +160,7 @@ export async function main(release: ReleaseType, options: Options) {
 
     await exec(
       PACKAGE_MANAGER_COMMAND_PREFIX[packageManager],
-      [PackageManager.YARN_1, PackageManager.YARN_3].includes(packageManager) ? [] : ['i'],
+      [PackageManager.YARN_CLASSIC, PackageManager.YARN_BERRY].includes(packageManager) ? [] : ['i'],
       options.dryRun,
     )
     await exec('git', ['add', '.'], options.dryRun)
@@ -161,10 +168,10 @@ export async function main(release: ReleaseType, options: Options) {
     await exec('git', ['tag', `v${nextVersion}`], options.dryRun)
 
     // -------------------------------------------------------------------------
-    // Postversion script
+    // Postrelease script
 
-    if (rootPackageData.scripts?.postversion) {
-      await exec(packageManagerCommandPrefix, ['postversion'], options.dryRun)
+    if (rootPackageData.scripts?.postrelease) {
+      await exec(packageManagerCommandPrefix, ['postrelease'], options.dryRun)
     }
   } catch (err) {
     handleError(err, true)

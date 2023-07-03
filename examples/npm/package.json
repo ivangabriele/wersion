@@ -7,6 +7,8 @@
     "packages/*"
   ],
   "scripts": {
-    "version": "wersion"
+    "prerelease": "echo 'Hi!'",
+    "release": "wersion",
+    "postrelease": "echo 'Bye!'"
   }
 }

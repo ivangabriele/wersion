@@ -22,8 +22,8 @@ Makes bumping your monorepos workspaces version a breeze 🌬️.
 
 ## Features
 
-- [x] `preversion` & `postversion` scripts
-- [x] `npm`, `pnpm`, `Yarn Classic (1)` & `Yarn Berry (2 => v2, v3)` package managers
+- [x] `prerelease` & `postrelease` scripts
+- [x] `npm`, `pnpm`, `Yarn Classic (v1)` & `Yarn Berry (v2, v3)` package managers
 - [x] `--dry-run` CLI option
 
 ## Roadmap
@@ -55,9 +55,9 @@ Then, add the following to your `package.json`:
 ```json
 {
   "scripts": {
-    // "preversion": ...",
-    "version": "wersion"
-    // "postversion": ...",
+    // "prerelease": ...",
+    "release": "wersion"
+    // "postrelease": ...",
   }
 }
 ```
@@ -69,13 +69,11 @@ You're done! 🎉
 Simply run:
 
 ```
-yarn version <release>
-# or
-yarn run version <release> # for Yarn Classic
+yarn release <release>
 # or
 pnpm version <release>
 # or
-npm run version <release>
+npm run release <release>
 ```
 
 `<release>` can be one of: "patch", "minor", "major", "prepatch", "preminor", "premajor" or "prerelease".

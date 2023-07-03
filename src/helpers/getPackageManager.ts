@@ -8,10 +8,10 @@ export async function getPackageManager(projectRootPath: string): Promise<Packag
 
   switch (true) {
     case projectRootPathFiles.includes('yarn.lock') && projectRootPathFiles.includes('.yarn'):
-      return PackageManager.YARN_3
+      return PackageManager.YARN_BERRY
 
     case projectRootPathFiles.includes('yarn.lock'):
-      return PackageManager.YARN_1
+      return PackageManager.YARN_CLASSIC
 
     case projectRootPathFiles.includes('pnpm-lock.yaml'):
       return PackageManager.PNPM
