@@ -20,13 +20,14 @@ Makes bumping your monorepos workspaces version a breeze 🌬️.
 
 ## Features
 
-- [x] Supports `preversion` & `postversion` scripts
-- [x] Supports `npm`, `pnpm`, `Yarn Classic (1)` & `Yarn Berry (2 => v2, v3)` package managers
+- [x] `preversion` & `postversion` scripts
+- [x] `npm`, `pnpm`, `Yarn Classic (1)` & `Yarn Berry (2 => v2, v3)` package managers
+- [x] `--dry-run` CLI option
 
 ## Roadmap
 
 - [ ] `allowedBranches` configuration key
-- [ ] `--dry-run` CLI option
+- [ ] Specified version support (i.e. `wersion 1.2.3`)
 
 ## Installation
 
@@ -61,4 +62,12 @@ You're done! 🎉
 
 ## Usage
 
-Simply run
+Simply run:
+
+```
+npm version [major | minor | patch | premajor | preminor | prepatch | prerelease | from-git]
+```
+
+`<release>` can be one of: "patch", "minor", "major", "prepatch", "preminor", "premajor" or "prerelease".
+
+You can run it with `--dry-run` or `-d` to see what would happen without actually bumping your packages versions.
