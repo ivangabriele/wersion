@@ -17,7 +17,7 @@ export async function exec(command: string, args: string[], isDryRun = false): P
   if (!isDryRun) {
     const execaChildProcess = await execa(command, args, options)
 
-    if (execaChildProcess.stderr.length > 0) {
+    if (execaChildProcess.stderr.trim().length > 0) {
       console.error(execaChildProcess.stderr)
       throw new Error(`Command \`${statement}\` failed.`)
     }
