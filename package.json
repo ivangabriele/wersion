@@ -22,7 +22,7 @@
   "devDependencies": {
     "@commitlint/cli": "18.6.1",
     "@commitlint/config-conventional": "18.6.2",
-    "@ivangabriele/commitlint-config": "1.1.0",
+    "@ivangabriele/commitlint-config": "2.0.3",
     "@ivangabriele/eslint-config-typescript-base": "7.1.1",
     "@ivangabriele/prettier-config": "3.2.0",
     "@ivangabriele/semantic-release-config-base": "3.0.3",
